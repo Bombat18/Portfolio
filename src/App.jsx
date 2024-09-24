@@ -8,11 +8,12 @@ import Hero from "./Components/Hero";
 import Nav from "./Components/Nav";
 import Project from "./Components/Project";
 import Skill from "./Components/Skill";
-import Title from "./Components/Title/Title";
+import Title from "./Title";
 
 function App() {
   return (
     <>
+      <Title/>
       <Nav />
       <Hero />
       <AboutUs />
@@ -22,7 +23,7 @@ function App() {
       <Experience />
       <Contact />
       <Footer />
-      <Title/>
+    
       
     </>
   );
