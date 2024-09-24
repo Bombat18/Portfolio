@@ -8,6 +8,7 @@ import Hero from "./Components/Hero";
 import Nav from "./Components/Nav";
 import Project from "./Components/Project";
 import Skill from "./Components/Skill";
+import Title from "./Components/Title/Title";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Experience />
       <Contact />
       <Footer />
+      <Title/>
       
     </>
   );
