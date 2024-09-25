@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { HashLink } from 'react-router-hash-link'; // Import HashLink for smooth scrolling
 
 const Nav = () => {
 
   useEffect(() => {
-    // Toggle Menu
     const menuIcon = document.getElementById('menu');
     const navbar = document.querySelector('.navbar');
 
@@ -15,38 +15,14 @@ const Nav = () => {
 
     menuIcon.addEventListener('click', toggleMenu);
 
-    // Scroll and Load Events
     const handleScroll = () => {
       menuIcon.classList.remove('fa-times');
       navbar.classList.remove('nav-toggle');
-
-      const scrollTop = document.querySelector('#scroll-top');
-      if (window.scrollY > 60) {
-        scrollTop.classList.add('active');
-      } else {
-        scrollTop.classList.remove('active');
-      }
-
-      // Scroll Spy
-      document.querySelectorAll('section').forEach((section) => {
-        let height = section.offsetHeight;
-        let offset = section.offsetTop - 200;
-        let top = window.scrollY;
-        let id = section.getAttribute('id');
-
-        if (top > offset && top < offset + height) {
-          document.querySelectorAll('.navbar ul li a').forEach((link) => {
-            link.classList.remove('active');
-          });
-          document.querySelector(`.navbar a[href="#${id}"]`)?.classList.add('active');
-        }
-      });
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('load', handleScroll);
 
-    // Clean up event listeners on component unmount
     return () => {
       menuIcon.removeEventListener('click', toggleMenu);
       window.removeEventListener('scroll', handleScroll);
@@ -57,40 +33,36 @@ const Nav = () => {
   return (
     <div>
       <header>
-        <a href="/" className="logo">
+        <HashLink to="#home" className="logo">
           <i className="fab fa-node-js" /> Ramya
-        </a>
+        </HashLink>
         <div id="menu" className="fas fa-bars" />
         <nav className="navbar">
           <ul>
             <li>
-              <a className="active" href="#home">Home</a>
+              <HashLink smooth to="#home">Home</HashLink>
             </li>
             <li>
-              <a href="#about">About</a>
+              <HashLink smooth to="#about">About</HashLink>
             </li>
             <li>
-              <a href="#skills">Skills</a>
+              <HashLink smooth to="#skills">Skills</HashLink>
             </li>
             <li>
-              <a href="#education">Education</a>
+              <HashLink smooth to="#education">Education</HashLink>
             </li>
             <li>
-              <a href="#work">Work</a>
+              <HashLink smooth to="#projects">Projects</HashLink>
             </li>
             <li>
-              <a href="#experience">Experience</a>
+              <HashLink smooth to="#experience">Experience</HashLink>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <HashLink smooth to="#contact">Contact</HashLink>
             </li>
           </ul>
         </nav>
       </header>
-      {/* Scroll to Top Button */}
-      <a href="#" id="scroll-top" className="scroll-top">
-        <i className="fas fa-chevron-up"></i>
-      </a>
     </div>
   );
 };

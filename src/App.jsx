@@ -9,23 +9,36 @@ import Nav from "./Components/Nav";
 import Project from "./Components/Project";
 import Skill from "./Components/Skill";
 import Title from "./Title";
+import NotFound from "./Components/NotFound";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Title/>
-      <Nav />
-      <Hero />
-      <AboutUs />
-      <Skill />
-      <Education />
-      <Project />
-      <Experience />
-      <Contact />
-      <Footer />
-    
-      
-    </>
+    <Router>
+      <Title />
+
+      <Routes>
+        {/* All sections on the same page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Nav />
+              <Hero />
+              <AboutUs />
+              <Skill />
+              <Education />
+              <Project />
+              <Experience />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        {/* Not Found page for unmatched routes */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

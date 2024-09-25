@@ -4,7 +4,7 @@ const Title = () => {
     useEffect(() => {
         const handleVisibilityChange = () => {
             if (document.visibilityState === "visible") {
-                document.title = "Projects | Portfolio Jigar Sable";
+                document.title = "Projects | Portfolio Ramya";
                 document.getElementById("favicon").setAttribute("href", "/favi/favicon.png");
             } else {
                 document.title = "Come Back To Portfolio";
