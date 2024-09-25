@@ -40,6 +40,17 @@ const Experience = () => {
               </div>
             </div>
           </div>
+          <div className="container right">
+            <div className="content">
+              <div className="tag">
+                <h2>Self Implementation</h2>
+              </div>
+              <div className="desc">
+                <h3>Full Stack Developer | Self implementation </h3>
+                <p>April 2021 - April 2021</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="morebtn">
           <a href="/experience" className="btn">

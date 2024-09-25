@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal'; // Make sure this is installed via npm if not already
 import profile2 from '../assets/images/profile2.jpg';
 import Card from './Card';
+import resume from '../assets/images/RAMYARANJAN.pdf'
 
 const AboutUs = () => {
     useEffect(() => {
@@ -67,7 +68,7 @@ const AboutUs = () => {
                     </div>
                     <div className="resumebtn">
                         <a
-                            href="https://drive.google.com/file/d/1rZiXl562q7aVyk1kJ2nO85YBAq8ixTiw/view"
+                            href={resume}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn"

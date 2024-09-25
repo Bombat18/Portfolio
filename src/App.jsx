@@ -11,12 +11,15 @@ import Skill from "./Components/Skill";
 import Title from "./Title";
 import NotFound from "./Components/NotFound";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LiveChat from "./Components/LiveChat";
+import ScrollToTopButton from './Components/ScrollToTop'
 
 function App() {
   return (
     <Router>
       <Title />
-
+      <LiveChat />
+      <ScrollToTopButton/>
       <Routes>
         {/* All sections on the same page */}
         <Route
@@ -24,7 +27,7 @@ function App() {
           element={
             <>
               <Nav />
-              <Hero />
+              <Hero />     
               <AboutUs />
               <Skill />
               <Education />
