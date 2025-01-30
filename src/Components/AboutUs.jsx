@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal'; // Make sure this is installed via npm if not already
 import profile2 from '../assets/images/profile2.jpg';
 import Card from './Card';
-import resume from '../assets/images/RAMYARANJAN.pdf'
+import resume from '../assets/images/RAMYA.pdf'
 
 const AboutUs = () => {
     useEffect(() => {
