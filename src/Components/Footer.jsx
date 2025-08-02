@@ -1,42 +1,92 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+
+const boxVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+    },
+  }),
+}
 
 const Footer = () => {
   return (
-    <div>
+    <motion.section
+      className="footer"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <div className="box-container">
+        <motion.div className="box" custom={1} variants={boxVariants}>
+          <h3>Ramya's Portfolio</h3>
+          <p>
+            Thank you for visiting my personal portfolio website. Connect with me over socials. <br /><br />
+            Keep Rising 🚀. Connect with me over live chat!
+          </p>
+        </motion.div>
 
-<section className="footer">
-  <div className="box-container">
-    <div className="box">
-      <h3>Ramya's Portfolio</h3>
-      <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br /> <br /> Keep Rising 🚀. Connect with me over live chat!</p>
-    </div>
-    <div className="box">
-      <h3>quick links</h3>
-      <a href="#home"><i className="fas fa-chevron-circle-right" /> home</a>
-      <a href="#about"><i className="fas fa-chevron-circle-right" /> about</a>
-      <a href="#skills"><i className="fas fa-chevron-circle-right" /> skills</a>
-      <a href="#education"><i className="fas fa-chevron-circle-right" /> education</a>
-      <a href="#work"><i className="fas fa-chevron-circle-right" /> work</a>
-      <a href="#experience"><i className="fas fa-chevron-circle-right" /> experience</a>
-    </div>
-    <div className="box">
-      <h3>contact info</h3>
-      <p> <i className="fas fa-phone" />+91 9178618677</p>
-      <p> <i className="fas fa-envelope" />ramyaranjan78@gmail.com</p>
-      <p> <i className="fas fa-map-marked-alt" />Odisha, India-756125</p>
-      <div className="share">
-        <a href="https://www.linkedin.com/in/ramyaranjan-/" className="fab fa-linkedin" aria-label="LinkedIn" target="_blank" />
-        <a href="https://github.com/bombat18" className="fab fa-github" aria-label="GitHub" target="_blank" />
-        <a href="mailto:ramyaranjan78@gmail.com" className="fas fa-envelope" aria-label="Mail" target="_blank" />
-        <a href="https://twitter.com/RAMYARANJANSET1" className="fab fa-twitter" aria-label="Twitter" target="_blank" />
-        {/* <a href="https://t.me/lifecode5" className="fab fa-telegram-plane" aria-label="Telegram" target="_blank" /> */}
+        <motion.div className="box" custom={2} variants={boxVariants}>
+          <h3>quick links</h3>
+          {[
+            { href: "#home", label: "home" },
+            { href: "#about", label: "about" },
+            { href: "#skills", label: "skills" },
+            { href: "#education", label: "education" },
+            { href: "#work", label: "work" },
+            { href: "#experience", label: "experience" }
+          ].map((link, index) => (
+            <motion.a
+              key={index}
+              href={link.href}
+              className="footer-link"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 * (index + 1), duration: 0.3 }}
+            >
+              <i className="fas fa-chevron-circle-right" /> {link.label}
+            </motion.a>
+          ))}
+        </motion.div>
+
+        <motion.div className="box" custom={3} variants={boxVariants}>
+          <h3>contact info</h3>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+            <i className="fas fa-phone" /> +91 9178618677
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+            <i className="fas fa-envelope" /> ramyaranjan78@gmail.com
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+            <i className="fas fa-map-marked-alt" /> Odisha, India-756125
+          </motion.p>
+
+          <div className="share">
+            {[
+              { href: "https://www.linkedin.com/in/ramyaranjan-/", icon: "fab fa-linkedin" },
+              { href: "https://github.com/bombat18", icon: "fab fa-github" },
+              { href: "mailto:ramyaranjan78@gmail.com", icon: "fas fa-envelope" },
+              { href: "https://twitter.com/RAMYARANJANSET1", icon: "fab fa-twitter" },
+            ].map((social, i) => (
+              <motion.a
+                key={i}
+                href={social.href}
+                className={social.icon}
+                target="_blank"
+                aria-label="Social Icon"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 * (i + 1), type: 'spring' }}
+              />
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </div>
-  </div>
-  {/* <h1 className="credit">Designed with <i className="fa fa-heart pulse" /> by <a href="https://www.linkedin.com/in/jigar-sable"></a></h1> */}
-</section>
-
-    </div>
+    </motion.section>
   )
 }
 

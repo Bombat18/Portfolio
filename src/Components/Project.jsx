@@ -1,55 +1,74 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
+import project1 from '../assets/images/projects/Ecom.png';
+import project2 from '../assets/images/projects/resume.png';
 
 const Project = () => {
+  useEffect(() => {
+    const srtop = ScrollReveal({
+      origin: 'top',
+      distance: '80px',
+      duration: 1000,
+      reset: true,
+    });
 
+    srtop.reveal('.work .box', { interval: 200 });
+  }, []); // Empty dependency array to run only once after mount
 
-  const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-});
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
-
-
-
-  
   return (
     <div>
+      {/* work project section starts */}
+      <section className="work" id="work">
+        <h2 className="heading"><i className="fas fa-laptop-code" /> Projects <span>Made</span></h2>
 
-        
-{/* work project section starts */}
-<section className="work" id="work">
-  <h2 className="heading"><i className="fas fa-laptop-code" /> Projects <span>Made</span></h2>
-  <div className="box-container">
-    {/* <div class="box tilt">
-<img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
-<div class="content">
-  <div class="tag">
-  <h3>Portfolio Website</h3>
-  </div>
-  <div class="desc">
-    <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
-    <div class="btns">
-      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-      <a href="https://github.com/jigar-sable/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+        <div className="flex flex-wrap sm:flex-nowrap gap-6 justify-center">
+
+          <div className="box-container">
+            <div className="box tilt">
+              <img draggable="false" src={project1} alt="Ecommerce Website" />
+              <div className="content">
+                <div className="tag">
+                  <h3>Ecommerce Website</h3>
+                </div>
+                <div className="desc">
+                  <p>This is our store. No need for long intros—just scroll down and start shopping. Everything you need is right here!</p>
+                  <div className="btns">
+                    <a href="https://flipzon1.netlify.app/" className="btn" target="_blank" rel="noreferrer"><i className="fas fa-eye" /> View</a>
+                    <a href="https://github.com/Bombat18/FlipZon" className="btn" target="_blank" rel="noreferrer">Code <i className="fas fa-code" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="box-container">
+            <div className="box tilt">
+              <img draggable="false" src={project2} alt="Resume Builder" />
+              <div className="content">
+                <div className="tag">
+                  <h3>Resume Building Website</h3>
+                </div>
+                <div className="desc">
+                  <p>Welcome to your resume builder. No long instructions—just scroll down and start creating. Everything you need is right here!</p>
+                  <div className="btns">
+                    <a href="https://main--rusumebuilder.netlify.app/" className="btn" target="_blank" rel="noreferrer"><i className="fas fa-eye" /> View</a>
+                    <a href="https://github.com/Bombat18/resumeBuilder" className="btn" target="_blank" rel="noreferrer">Code <i className="fas fa-code" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="viewall">
+          <a href="/projects" className="btn"><span>View All</span>
+            <i className="fas fa-arrow-right" />
+          </a>
+        </div>
+      </section>
     </div>
-  </div>
-</div>
-    </div> */}
-  </div>
-  <div className="viewall">
-    <a href="/projects" className="btn"><span>View All</span>
-      <i className="fas fa-arrow-right" />
-    </a>
-  </div>
-</section>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Project
+export default Project;
