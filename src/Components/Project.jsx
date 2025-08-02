@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from 'scrollreveal';
-import project1 from '../assets/images/projects/Ecom.png';
+import project1 from '../assets/images/projects/ecom.png';
 import project2 from '../assets/images/projects/resume.png';
 
 const Project = () => {
